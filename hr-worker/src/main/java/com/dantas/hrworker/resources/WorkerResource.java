@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RefreshScope
 @RestController
 @RequestMapping(value = "/workers")
+@RefreshScope
 public class WorkerResource {
 
     private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
 
-    @Value("${test.config}")
+    @Value("${test.config}") //VALUE REFERS TO CONFIG INTO REMOTE GIT REPOSITORY
     private String testConfig;
 
     @Autowired
@@ -61,3 +61,5 @@ public class WorkerResource {
         return ResponseEntity.ok(workerFounded);
     }
 }
+
+
