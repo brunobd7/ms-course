@@ -1,12 +1,18 @@
 package com.dantas.hrapigatewayzuul.config;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
+@RefreshScope // TO ACTUATOR REFRESH CONFIGS FROM CONFIG-SERVER
 @Configuration
 public class AppConfig {
+
+    @Value("${jwt.secret}")
+    private String jwtSecret;
 
     /**
      * Configuration bean to manage our jwt token and set configurations
@@ -14,7 +20,7 @@ public class AppConfig {
     @Bean
     public JwtAccessTokenConverter accessTokenConverter(){
         JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
-        tokenConverter.setSigningKey("MY_SECRET_KEY");
+        tokenConverter.setSigningKey(jwtSecret);
         return  tokenConverter;
     }
 

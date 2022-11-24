@@ -19,7 +19,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     private static final String[] PUBLIC_PATHS = {"/hr-oauth/oauth/token"}; //PATH TO LOGIN ON AUTH SERVER
     private static final String[] OPERATOR_ROLE_PATHS = {"/hr-worker/**"}; // AUTHORIZED PATHS TO ROLE 'OPERATOR'
-    private static final String[] ADMIN_ROLE_PATHS = {"/hr-payroll/**", "/hr-user/**"}; // AUTHORIZED PATHS TO ROLE 'ADMIN'
+    private static final String[] ADMIN_ROLE_PATHS = {"/hr-payroll/**", "/hr-user/**",
+            "/actuator/**", "/hr-worker/actuator/**", "/hr-oauth/actuator/**"}; // AUTHORIZED PATHS TO ROLE 'ADMIN'
 
     /** With this configuration application can read token in authorization headers of http request*/
     @Override
