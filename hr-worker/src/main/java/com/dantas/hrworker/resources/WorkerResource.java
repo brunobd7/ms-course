@@ -15,10 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/workers")
-@RefreshScope
+//@RefreshScope
 public class WorkerResource {
 
     private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
@@ -55,7 +56,7 @@ public class WorkerResource {
 //        }
 
         //PRINT EXECUTION PORT WHERE REQUESTs ARE RUNNING
-        logger.info("PORT => " + env.getProperty("local.server.port"));
+        logger.info("PORT => " + Optional.of(env.getProperty("local.server.port")).orElse("ENV VARIABLE TO PORT INFO NOT FOUND"));
 
         Worker workerFounded = workerRepository.findById(id).orElse(new Worker());
         return ResponseEntity.ok(workerFounded);
