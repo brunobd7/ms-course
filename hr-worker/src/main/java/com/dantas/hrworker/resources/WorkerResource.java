@@ -24,8 +24,8 @@ public class WorkerResource {
 
     private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
 
-    @Value("${test.config}") //VALUE REFERS TO CONFIG INTO REMOTE GIT REPOSITORY
-    private String testConfig;
+//    @Value("${test.config}") //VALUE REFERS TO CONFIG INTO REMOTE GIT REPOSITORY
+//    private String testConfig;
 
     @Autowired
     private Environment env;
@@ -42,7 +42,7 @@ public class WorkerResource {
 
     @GetMapping(value = "/configs")
     private ResponseEntity<Void> getConfigs(){
-        logger.info("CONFIG => "+ testConfig);
+//        logger.info("CONFIG => "+ testConfig);
         return ResponseEntity.noContent().build();
     }
 
