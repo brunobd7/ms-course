@@ -27,7 +27,7 @@ mvnw clean package
 
 docker build -t hr-config-server:v1 .
 
-docker run -p 8888:8888 --name hr-config-server --network hr-net -e GITHUB_USER=acenelio -e GITHUB_PASS= hr-config-server:v1
+docker run -p 8888:8888 --name hr-config-server --network hr-net -e GITHUB_USER=brunobd7 -e GITHUB_PASS= hr-config-server:v1
 ```
 
 ## hr-eureka-server
